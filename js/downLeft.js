@@ -3,7 +3,7 @@ const div_downLeft = document.getElementById('down-left')
 div_downLeft.onclick = function() {
 	downMid_addHeadLine('asd');
 
-	downMid_loadCiYun();
+	downLeft_loadCiYun();
 	const id = 'downLeft_div_1';
 	if (!document.getElementById(id)) {
 		downLeft_addDiv(id);
@@ -11,7 +11,8 @@ div_downLeft.onclick = function() {
 	}
 }
 
-function downMid_loadCiYun(shop_id) {
+//加载downMid界面中的词云
+function downLeft_loadCiYun(shop_id) {
 	var xmlhttp;
 	if (window.XMLHttpRequest) {
 		xmlhttp = new XMLHttpRequest();
@@ -27,10 +28,14 @@ function downMid_loadCiYun(shop_id) {
 	}
 	console.log("downMid_loadCiYun")
 	xmlhttp.open("POST", "http://www.pipicat.top:5000/rest/picbyid", true);
-	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xmlhttp.send("id=10023099");
+	xmlhttp.setRequestHeader("Content-type", "application/json");
+	xmlhttp.send(JSON.stringify({
+		"id": "10023099"
+	}));
 }
 
+
+//
 function downLeft_addDiv(id) {
 	const div = document.createElement('div');
 	div.id = id;
@@ -38,6 +43,8 @@ function downLeft_addDiv(id) {
 	div_downLeft.appendChild(div);
 }
 
+
+//加载柱状图
 function downLeft_Zhu(id, data) {
 	// 	//清空整个页面
 	// 	div_downLeft.innerHTML = "";
