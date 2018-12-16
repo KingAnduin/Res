@@ -21,13 +21,13 @@
 	
 	.up .left {
 		height: 100%;
-		width: 62%;
+		width: 50%;
 		background-color: salmon;
 	}
 	
 	.up .right {
 		height: 100%;
-		width: 38%;
+		width: 50%;
 		background-color: antiquewhite;
 	}
 	
