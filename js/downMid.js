@@ -25,11 +25,9 @@ function downMid_loadCiYun(res_id) {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			let str = xmlhttp.responseText
 			let data = JSON.parse(str)
-			console.log(data)
 			downMid_addCiYun('downMid_image_CiYun', data.data);
 		}
 	}
-	console.log("downMid_loadCiYun")
 	xmlhttp.open("POST", "http://www.pipicat.top:5000/rest/picbyid", true);
 	xmlhttp.setRequestHeader("Content-type", "application/json");
 	xmlhttp.send(JSON.stringify({

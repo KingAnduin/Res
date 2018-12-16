@@ -5,14 +5,13 @@ div_downLeft.onclick = function() {
 
 	downMid_loadCiYun("10023099");
 	
+
 	const downLeft_leiDa_id = 'downLeft_div_1';
 	if (!document.getElementById(downLeft_leiDa_id)) {
 		//初始化一个节点
 		downLeft_addDiv(downLeft_leiDa_id);
-		//来存放雷达图
-		downLeft_LeiDa(downLeft_leiDa_id);
 	}
-
+	downLeft_loadResDate("10023099");
 
 }
 
@@ -25,16 +24,51 @@ function downLeft_addDiv(id) {
 	div_downLeft.appendChild(div);
 }
 
+//网络请求 返回：店铺基本信息
+function downLeft_loadResDate(res_id) {
+	let xmlhttp;
+	if (window.XMLHttpRequest) {
+		xmlhttp = new XMLHttpRequest();
+	} else {
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	//回调函数
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			let str = xmlhttp.responseText
+			let data = JSON.parse(str)
+			downLeft_LeiDa('downLeft_div_1', data);
+
+		}
+	}
+	xmlhttp.open("POST", "http://www.pipicat.top:5000/rest/byid", true);
+	xmlhttp.setRequestHeader("Content-type", "application/json");
+	xmlhttp.send(JSON.stringify({
+		"id": res_id
+	}));
+}
+
 
 //加载雷达图
 function downLeft_LeiDa(id, data) {
 
 	// 基于准备好的dom，初始化echarts实例
 	const myChart = echarts.init(document.getElementById(id));
+	
+	let environment = data.data.environment;
+	let service = data.data.service;
+	let star = data.data.star;
+	let tast = data.data.tast;
+	let review_count = data.data.review_count;
+	let len = review_count.length - 3;
+	review_count = review_count.substr(0, len);
+	
+	console.log(review_count);
+	
 	// 指定图表的配置项和数据
 	const option = {
 		title: {
-			text: '店铺评分'
+			text: '店铺评分:'+data.data.item_cat
 		},
 		tooltip: {
 			trigger: 'axis'
@@ -43,7 +77,7 @@ function downLeft_LeiDa(id, data) {
 			orient: 'vertical',
 			x: 'right',
 			y: 'bottom',
-			data: ['预算分配（Allocated Budget）', '实际开销（Actual Spending）']
+			data: []
 		},
 		toolbox: {
 			show: true,
@@ -65,42 +99,35 @@ function downLeft_LeiDa(id, data) {
 		},
 		polar: [{
 			indicator: [{
-					text: '销售（sales）',
-					max: 6000
+					text: '环境',
+					max: 10
 				},
 				{
-					text: '管理（Administration）',
-					max: 16000
+					text: '服务',
+					max: 10
 				},
 				{
-					text: '信息技术（Information Techology）',
-					max: 30000
+					text: '味道',
+					max: 10
+				},
+				
+				{
+					text: '星级',
+					max: 5
 				},
 				{
-					text: '客服（Customer Support）',
-					max: 38000
-				},
-				{
-					text: '研发（Development）',
-					max: 52000
-				},
-				{
-					text: '市场（Marketing）',
-					max: 25000
+					text: '点评数',
+					max: 1000
 				}
 			]
 		}],
 		calculable: true,
 		series: [{
-			name: '预算 vs 开销（Budget vs spending）',
+			name: '',
 			type: 'radar',
 			data: [{
-					value: [4300, 10000, 28000, 35000, 50000, 19000],
-					name: '预算分配（Allocated Budget）'
-				},
-				{
-					value: [5000, 14000, 28000, 31000, 42000, 21000],
-					name: '实际开销（Actual Spending）'
+					value: [environment, service, star, tast, review_count],
+					name: ''
 				}
 			]
 		}]

@@ -81,28 +81,23 @@ function upRight_getCommentTime() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			let str = xmlhttp.responseText
 			let data = JSON.parse(str)
-			
-// 			let y = 2015
-// 			let m = 02;
-// 			let d = 03;
-// 			m = m+12;
-// 			console.log(m);
-// 			console.log(d);
-// 			let week = parseInt((d+2*m+3*(m+1)/5+y+y/4-y/100+y/400)%7);
-// 			console.log(week);
-			for (let i in data.data){
-				
+
+
+			for (let i in data.data) {
+
 				let date = data.data[i].split('-');
-				if(date[1].length<=2){
+				if (date[1].length <= 2) {
 					let y = 2015;
 					let m = date[0];
 					let d = date[1];
-					
-					if(m <= 2){
-						m = m + 12;
-						y = 2014;
-					}
-					let week = parseInt((d+2*m+3*(m+1)/5+y+y/4-y/100+y/400)%7);
+
+					let arys1 = new Array();
+					arys1 = y+'-'+m+"-"+d;
+					arys = "2016-09-25".split('-'); //日期为输入日期，格式为 2013-3-10
+					let ssdate = new Date(arys[0], parseInt(arys[1] - 1), arys[2]);
+					let week1 = String(ssdate.getDay()).replace("0", "日").replace("1", "一").replace("2", "二").replace("3", "三").replace(
+						"4", "四").replace("5", "五").replace("6", "六") //就是你要的星期几
+					let week = "星期" + week1;//就是你要的星期几
 					console.log(week);
 				}
 			}
