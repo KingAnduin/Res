@@ -1,11 +1,7 @@
-
 const div_downMid = document.getElementById('down-mid')
 
 
-// addHeadLine('我是标题');
-
-
-
+//downMid的标题
 function downMid_addHeadLine(content, id) {
 	div_downMid.innerHTML = ""
 	const p = document.createElement('p');
@@ -18,7 +14,7 @@ function downMid_addHeadLine(content, id) {
 
 //加载downMid界面中的词云
 function downMid_loadCiYun(res_id) {
-	var xmlhttp;
+	let xmlhttp;
 	if (window.XMLHttpRequest) {
 		xmlhttp = new XMLHttpRequest();
 	} else {
@@ -42,11 +38,15 @@ function downMid_loadCiYun(res_id) {
 }
 
 
+//创建接收词云的Image
 function downMid_addCiYun(id, url) {
-	const img = document.createElement('img');
-	img.id = id;
-	img.alt = "图片还没有加载出来！";
-	img.src = url;
-	img.className = 'image_img_downMid'
-	div_downMid.appendChild(img);
+	if (!document.getElementById(id)) {
+		//div_downMid.innerHTML = ""
+		const img = document.createElement('img');
+		img.id = id;
+		img.alt = "图片还没有加载出来！";
+		img.src = url;
+		img.className = 'image_img_downMid'
+		div_downMid.appendChild(img);
+	}
 }
