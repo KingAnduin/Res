@@ -3,39 +3,20 @@ const div_downLeft = document.getElementById('down-left')
 div_downLeft.onclick = function() {
 	downMid_addHeadLine('asd');
 
-	downLeft_loadCiYun();
-	const id = 'downLeft_div_1';
-	if (!document.getElementById(id)) {
-		downLeft_addDiv(id);
-		downLeft_Zhu(id);
+	downMid_loadCiYun("10023099");
+	const downLeft_id = 'downLeft_div_1';
+	if (!document.getElementById(downLeft_id)) {
+		//初始化一个节点
+		downLeft_addDiv(downLeft_id);
+		//来存放柱状图
+		downLeft_Zhu(downLeft_id);
 	}
-}
-
-//加载downMid界面中的词云
-function downLeft_loadCiYun(shop_id) {
-	var xmlhttp;
-	if (window.XMLHttpRequest) {
-		xmlhttp = new XMLHttpRequest();
-	} else {
-		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	//回调函数
-	xmlhttp.onreadystatechange = function() {
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			console.log(xmlhttp.responseText);
-			//downMid_addCiYun('downMid_image_CiYun', xmlhttp.responseText);
-		}
-	}
-	console.log("downMid_loadCiYun")
-	xmlhttp.open("POST", "http://www.pipicat.top:5000/rest/picbyid", true);
-	xmlhttp.setRequestHeader("Content-type", "application/json");
-	xmlhttp.send(JSON.stringify({
-		"id": "10023099"
-	}));
+	
+	
 }
 
 
-//
+//初始化一个节点，用来存放控件
 function downLeft_addDiv(id) {
 	const div = document.createElement('div');
 	div.id = id;
