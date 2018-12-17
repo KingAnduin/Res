@@ -4,7 +4,7 @@ div_downLeft.onclick = function() {
 	downMid_addHeadLine('热门评价词条', 'title_downMid');
 
 	downMid_loadCiYun("10023099");
-	
+
 
 	const downLeft_leiDa_id = 'downLeft_div_1';
 	if (!document.getElementById(downLeft_leiDa_id)) {
@@ -54,7 +54,7 @@ function downLeft_LeiDa(id, data) {
 
 	// 基于准备好的dom，初始化echarts实例
 	const myChart = echarts.init(document.getElementById(id));
-	
+
 	let environment = data.data.environment;
 	let service = data.data.service;
 	let star = data.data.star;
@@ -62,13 +62,13 @@ function downLeft_LeiDa(id, data) {
 	let review_count = data.data.review_count;
 	let len = review_count.length - 3;
 	review_count = review_count.substr(0, len);
-	
+
 	console.log(review_count);
-	
+
 	// 指定图表的配置项和数据
 	const option = {
 		title: {
-			text: '店铺评分:'+data.data.item_cat
+			text: '店铺评分:' + data.data.name
 		},
 		tooltip: {
 			trigger: 'axis'
@@ -77,7 +77,7 @@ function downLeft_LeiDa(id, data) {
 			orient: 'vertical',
 			x: 'right',
 			y: 'bottom',
-			data: []
+			data: ['asd']
 		},
 		toolbox: {
 			show: true,
@@ -110,10 +110,10 @@ function downLeft_LeiDa(id, data) {
 					text: '味道',
 					max: 10
 				},
-				
+
 				{
 					text: '星级',
-					max: 5
+					max: 10
 				},
 				{
 					text: '点评数',
@@ -123,13 +123,19 @@ function downLeft_LeiDa(id, data) {
 		}],
 		calculable: true,
 		series: [{
-			name: '',
+			name: 'asd',
 			type: 'radar',
-			data: [{
-					value: [environment, service, star, tast, review_count],
-					name: ''
+			itemStyle: {
+				normal: {
+					areaStyle: {
+						type: 'default'
+					}
 				}
-			]
+			},
+			data: [{
+				value: [environment, service, star, tast, review_count],
+				name: 'asd'
+			}]
 		}]
 	};
 	// 使用刚指定的配置项和数据显示图表。

@@ -1,17 +1,6 @@
 const div_upRight = document.getElementById('up-right')
 
-<<<<<<< HEAD
-
-div_upRight.onclick = function() {
-	console.log("div_upRight")
-	upRight_addDiv('upRight_rectRestAmount')
-	//upRight_rectRestAmount('upRight_rectRestAmount');
-	//upRight_getAllData();
-	upRight_getCommentTime();
-}
-=======
 upRight_getAllData()
->>>>>>> 7c682fc333233200dd07ac16918af1b3dd5d2cd3
 
 
 //网络请求 返回：各类型餐厅数量 + 各类型餐厅每月的消费数量
@@ -63,49 +52,6 @@ function upRight_getAllData() {
 	xmlhttp.send(JSON.stringify({}));
 }
 
-<<<<<<< HEAD
-//网络请求 返回：所有评论时间
-function upRight_getCommentTime() {
-	let xmlhttp;
-	if (window.XMLHttpRequest) {
-		xmlhttp = new XMLHttpRequest();
-	} else {
-		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	//回调函数
-	xmlhttp.onreadystatechange = function() {
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			let str = xmlhttp.responseText
-			let data = JSON.parse(str)
-
-
-			for (let i in data.data) {
-
-				let date = data.data[i].split('-');
-				if (date[1].length <= 2) {
-					let y = 2015;
-					let m = date[0];
-					let d = date[1];
-
-					let arys1 = new Array();
-					arys1 = y+'-'+m+"-"+d;
-					arys = "2016-09-25".split('-'); //日期为输入日期，格式为 2013-3-10
-					let ssdate = new Date(arys[0], parseInt(arys[1] - 1), arys[2]);
-					let week1 = String(ssdate.getDay()).replace("0", "日").replace("1", "一").replace("2", "二").replace("3", "三").replace(
-						"4", "四").replace("5", "五").replace("6", "六") //就是你要的星期几
-					let week = "星期" + week1;//就是你要的星期几
-					console.log(week);
-				}
-			}
-		}
-	}
-	console.log("upRight_getCommentTime")
-	xmlhttp.open("POST", "http://www.pipicat.top:5000/rest/allcom", true);
-	xmlhttp.setRequestHeader("Content-type", "application/json");
-	xmlhttp.send(JSON.stringify({}));
-}
-=======
->>>>>>> 7c682fc333233200dd07ac16918af1b3dd5d2cd3
 
 
 //初始化一个节点，用来存放控件
