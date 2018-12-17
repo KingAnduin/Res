@@ -19,6 +19,7 @@ function downRight_initAll(userId){
 
 
 
+
 //downRight的标题
 function downRight_addTitle(content, id) {
 	div_downRight.innerHTML = "";
