@@ -1,13 +1,22 @@
 const div_downRight = document.getElementById('down-right')
 
 // 
-div_downRight.onclick = function() {
+// div_downRight.onclick = function() {
+// 
+// 	downRight_addTitle('用户评价', 'title_downRight');
+// 	downRight_commentScroll('comment_downRight');
+// 	downRight_getCommentById('10023099');
+// 
+// }
 
+//downRight初始化函数
+//userId ：用户ID
+function downRight_initAll(userId){
 	downRight_addTitle('用户评价', 'title_downRight');
 	downRight_commentScroll('comment_downRight');
-	downRight_getCommentById('10023099');
-
+	downRight_getCommentById(userId);
 }
+
 
 
 //downRight的标题

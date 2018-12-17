@@ -22,7 +22,8 @@
 	.up .left {
 		height: 100%;
 		width: 50%;
-		background-color: salmon;
+		background-color: #FAEBD7;
+		
 	}
 	
 	.up .right {
@@ -33,17 +34,17 @@
 	
 	.down .down-left {
 		width: 30%;
-		background-color: brown;
+		background-color: #FAEBD7;
 	}
 	
 	.down .down-mid {
 		width: 32%;
-		background-color: darkorange;
+		background-color: #FAEBD7;
 	}
 	
 	.down .down-right {
 		width: 38%;
-		background-color: skyblue;
+		background-color: #FAEBD7;
 	}
 	
 	.down-mid .image_img_downMid {

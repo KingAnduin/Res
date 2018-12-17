@@ -1,18 +1,25 @@
 const div_downLeft = document.getElementById('down-left')
 
-div_downLeft.onclick = function() {
-	downMid_addHeadLine('热门评价词条', 'title_downMid');
+// div_downLeft.onclick = function() {
+// 	
+// 	const downLeft_leiDa_id = 'downLeft_div_1';
+// 	if (!document.getElementById(downLeft_leiDa_id)) {
+// 		//初始化一个节点
+// 		downLeft_addDiv(downLeft_leiDa_id);
+// 	}
+// 	downLeft_loadResDate("10023099");
+// 
+// }
 
-	downMid_loadCiYun("10023099");
-
-
+//downLeft 初始化函数
+//userId ：用户ID
+function downLeft_initAll(userId){
 	const downLeft_leiDa_id = 'downLeft_div_1';
 	if (!document.getElementById(downLeft_leiDa_id)) {
 		//初始化一个节点
 		downLeft_addDiv(downLeft_leiDa_id);
 	}
 	downLeft_loadResDate("10023099");
-
 }
 
 

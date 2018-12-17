@@ -1,5 +1,13 @@
 const div_downMid = document.getElementById('down-mid')
 
+//downMid 初始化函数
+//userId ：用户ID
+function downMid_initAll(userId){
+	downMid_addHeadLine('热门评价词条', 'title_downMid');
+	downMid_loadCiYun(userId);
+}
+
+
 
 //downMid的标题
 function downMid_addHeadLine(content, id) {
