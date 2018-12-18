@@ -281,8 +281,8 @@ function upleft_addScatterDiv(id, myData) {
 						.duration(500)
 						.style("opacity", 1);
 					d3div.html("店名：" + name + '</br>' + "类别：" + reType)
-						.style("top", e.clientY + "px")
-						.style("left", e.clientX + "px");
+						.style("top", e.clientY+10 + "px")
+						.style("left", e.clientX+10 + "px");
 				} else {
 					d3div.transition()
 						.duration(10)
