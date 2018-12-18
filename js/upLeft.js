@@ -68,6 +68,34 @@ let typeColor = [{
 		type: '酒吧'
 	},
 	{
+		color: '#548C00',
+		type: '东北菜'
+	},
+	{
+		color: '#0072E3',
+		type: '新疆菜'
+	},
+	{
+		color: '#CDCD9A',
+		type: '清真菜'
+	},
+	{
+		color: '#FFC1E0',
+		type: '湘菜'
+	},
+	{
+		color: '#B15BFF',
+		type: '美食'
+	},
+	{
+		color: '#977C00',
+		type: '茶馆'
+	},
+	{
+		color: '#C1FFE4',
+		type: '食品茶酒'
+	},
+	{
 		color: '#ccc',
 		type: '其他'
 	}
@@ -300,6 +328,8 @@ function upleft_addScatterDiv(id, myData) {
 	legend.style.position = 'absolute';
 	legend.style.left = '10px';
 	legend.style.top = '10px';
+	$(legend).children().css('height', '18px');
+	$(legend).children().css('line-height', '18px');
 	div.appendChild(legend);
 	$(legend).delegate('div', 'click', function() {
 		let value = $(this).attr('value');

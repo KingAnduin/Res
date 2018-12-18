@@ -31,7 +31,6 @@ function downMid_loadCiYun(res_id) {
 	//回调函数
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			console.log('123'+data);
 			let str = xmlhttp.responseText
 			let data = JSON.parse(str)
 			downMid_addCiYun('downMid_image_CiYun', data.data);

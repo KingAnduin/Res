@@ -13,13 +13,13 @@ const div_downLeft = document.getElementById('down-left')
 
 //downLeft 初始化函数
 //userId ：用户ID
-function downLeft_initAll(userId){
+function downLeft_initAll(userId) {
 	const downLeft_leiDa_id = 'downLeft_div_1';
 	if (!document.getElementById(downLeft_leiDa_id)) {
 		//初始化一个节点
 		downLeft_addDiv(downLeft_leiDa_id);
 	}
-	downLeft_loadResDate("10023099");
+	downLeft_loadResDate(userId);
 }
 
 
@@ -70,41 +70,28 @@ function downLeft_LeiDa(id, data) {
 	let len = review_count.length - 3;
 	review_count = review_count.substr(0, len);
 
-	console.log(review_count);
+	console.log(data)
+	console.log('店名', data.data.name);
 
 	// 指定图表的配置项和数据
 	const option = {
 		title: {
 			text: '店铺评分:' + data.data.name
 		},
-		tooltip: {
-			trigger: 'axis'
-		},
+		tooltip: {},
 		legend: {
-			orient: 'vertical',
-			x: 'right',
-			y: 'bottom',
-			data: ['asd']
+			
 		},
-		toolbox: {
-			show: true,
-			feature: {
-				mark: {
-					show: true
-				},
-				dataView: {
-					show: true,
-					readOnly: false
-				},
-				restore: {
-					show: true
-				},
-				saveAsImage: {
-					show: true
+		radar: {
+			// shape: 'circle',
+			name: {
+				textStyle: {
+					color: '#fff',
+					backgroundColor: '#999',
+					borderRadius: 3,
+					padding: [3, 5]
 				}
-			}
-		},
-		polar: [{
+			},
 			indicator: [{
 					text: '环境',
 					max: 10
@@ -124,24 +111,17 @@ function downLeft_LeiDa(id, data) {
 				},
 				{
 					text: '点评数',
-					max: 1000
+					max: 500
 				}
 			]
-		}],
-		calculable: true,
+		},
+
 		series: [{
 			name: 'asd',
 			type: 'radar',
-			itemStyle: {
-				normal: {
-					areaStyle: {
-						type: 'default'
-					}
-				}
-			},
 			data: [{
 				value: [environment, service, star, tast, review_count],
-				name: 'asd'
+				name: '  '
 			}]
 		}]
 	};
