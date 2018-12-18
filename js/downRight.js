@@ -53,9 +53,7 @@ function downRight_getCommentById(res_id) {
 			let str = xmlhttp.responseText
 			let data = JSON.parse(str)
 
-			console.log(data.data);
 			for (let i in data.data) {
-				console.log(data.data[i].user_pic);
 				let urlHead = "http://i3.dpfile.com/s/img/uc/default-avatar48c48.png";
 				let name = data.data[i].user_name;
 				let comment = data.data[i].review;
