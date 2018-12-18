@@ -149,9 +149,9 @@
 		width: 10%;
 		height: 5%;
 	}
-	.anchorBl{
+	.anchorBL{
 		display: none;
 	}
-	.BMap_cpyCtrl BMap_noprint anchorBL{
+	.BMap_cpyCtrl .BMap_noprint .anchorBL{
 		display: none;
 	}
