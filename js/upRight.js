@@ -104,6 +104,8 @@ function upRight_addDiv(id, data) {
 			upRight_btnlist_button.onclick = function() {
 				upRight_layout(i, 'UpRightGraph', data)
 			}
+			upRight_btnlist_button.className = 'up_right_button01_toChangeEchars'
+			
 			upRight_btnlist_div.appendChild(upRight_btnlist_button)
 			div_btnlist.appendChild(upRight_btnlist_button)
 		}

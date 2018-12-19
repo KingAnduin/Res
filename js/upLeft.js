@@ -155,7 +155,8 @@ function upleft_addHeatmapDiv(id, myData) {
 	const hButton = document.createElement("input");
 	hButton.id = "hbutton"
 	hButton.type = "button";
-	hButton.className = "hbutton_upleft";
+	//hButton.className = "hbutton_upleft";
+	hButton.className = "up_right_button01_toChangeEchars"
 	hButton.value = "热力图";
 	hButton.onclick = function() {
 		div_upLeft.removeChild(document.getElementById(id));
@@ -166,7 +167,8 @@ function upleft_addHeatmapDiv(id, myData) {
 	const sButton = document.createElement("input");
 	sButton.id = "sbutton"
 	sButton.type = "button";
-	sButton.className = "sbutton_upleft";
+	//sButton.className = "sbutton_upleft";
+	sButton.className = "up_right_button01_toChangeEchars"
 	sButton.value = "散点图";
 	sButton.onclick = function() {
 		div_upLeft.removeChild(document.getElementById(id));
@@ -225,7 +227,8 @@ function upleft_addScatterDiv(id, myData) {
 	const hButton = document.createElement("input");
 	hButton.id = "hbutton"
 	hButton.type = "button";
-	hButton.className = "hbutton_upleft";
+	//hButton.className = "hbutton_upleft";
+	hButton.className = "up_right_button01_toChangeEchars"
 	hButton.value = "热力图";
 	hButton.onclick = function() {
 		div_upLeft.removeChild(document.getElementById(id));
@@ -236,7 +239,8 @@ function upleft_addScatterDiv(id, myData) {
 	const sButton = document.createElement("input");
 	sButton.id = "sbutton"
 	sButton.type = "button";
-	sButton.className = "sbutton_upleft";
+	//sButton.className = "sbutton_upleft";
+	sButton.className = "up_right_button01_toChangeEchars"
 	sButton.value = "散点图";
 	sButton.onclick = function() {
 		div_upLeft.removeChild(document.getElementById(id));
