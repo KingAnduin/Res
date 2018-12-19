@@ -2,7 +2,6 @@ const div_upRight = document.getElementById('up-right')
 
 upRight_getAllData()
 
-
 //网络请求 返回：各类型餐厅数量 + 各类型餐厅每月的消费数量
 function upRight_getAllData() {
 	let xmlhttp;
@@ -46,13 +45,11 @@ function upRight_getAllData() {
 			}
 		}
 	}
-	console.log("downRight_allData")
+	//console.log("downRight_allData")
 	xmlhttp.open("POST", "http://www.pipicat.top:5000/rest/msg", true);
 	xmlhttp.setRequestHeader("Content-type", "application/json");
 	xmlhttp.send(JSON.stringify({}));
 }
-
-
 
 //初始化一个节点，用来存放控件
 function upRight_addDiv(id, data) {
@@ -64,49 +61,61 @@ function upRight_addDiv(id, data) {
 
 		// btn-group
 		const div_btnlist = document.createElement('div');
-		div_btnlist.className = 'btn-group'
+		div_btnlist.className = 'up_right_button_toChangeEchars'
 		div_upRight.appendChild(div_btnlist)
 
-		//btn-group-button
-		const upRight_btnlist_btn = document.createElement('button')
-		upRight_btnlist_btn.className = 'btn btn-default dropdown-toggle'
-		upRight_btnlist_btn.setAttribute('data-toggle', 'dropdown')
-		upRight_btnlist_btn.appendChild(document.createTextNode('按钮'))
+//		//btn-group-button
+//		const upRight_btnlist_btn = document.createElement('button')
+//		upRight_btnlist_btn.className = 'btn btn-default dropdown-toggle'
+//		upRight_btnlist_btn.setAttribute('data-toggle', 'dropdown')
+//		upRight_btnlist_btn.appendChild(document.createTextNode('按钮'))
+//
+//		//btn-group-button-span
+//		const upRight_btnlist_btn_span = document.createElement('span')
+//		upRight_btnlist_btn_span.className = 'caret'
+//		upRight_btnlist_btn.appendChild(upRight_btnlist_btn_span)
+//		div_btnlist.appendChild(upRight_btnlist_btn)
+//
+//		//btn-group-ul
+//		const upRight_btnlist_ul = document.createElement('ul')
+//		upRight_btnlist_ul.className = 'dropdown-menu'
+//		upRight_btnlist_ul.setAttribute('role', 'menu')
+//
+//		let nameArys = new Array("各类型餐厅每月消费情况", "各类型餐厅比例", "周每天消费情况", "评分排名")
+//		for (let i = 0; i < 4; i++) {
+//			//btn-group-ul-li-01
+//
+//			const upRight_btnlist_li_01 = document.createElement('li')
+//			upRight_btnlist_li_01.onclick = function() {
+//				upRight_layout(i, 'UpRightGraph', data)
+//			}
+//			upRight_btnlist_li_01.appendChild(document.createTextNode(nameArys[i]))
+//			upRight_btnlist_ul.appendChild(upRight_btnlist_li_01)
+//		}
 
-		//btn-group-button-span
-		const upRight_btnlist_btn_span = document.createElement('span')
-		upRight_btnlist_btn_span.className = 'caret'
-		upRight_btnlist_btn.appendChild(upRight_btnlist_btn_span)
-		div_btnlist.appendChild(upRight_btnlist_btn)
-
-		//btn-group-ul
-		const upRight_btnlist_ul = document.createElement('ul')
-		upRight_btnlist_ul.className = 'dropdown-menu'
-		upRight_btnlist_ul.setAttribute('role', 'menu')
-
-		let nameArys = new Array("各类型餐厅每月消费情况", "各类型餐厅比例", "周每天消费情况", "评分排名")
-		for (let i = 0; i < 4; i++) {
+		let nameArys = new Array("各类型餐厅每月消费情况", "各类型餐厅比例", "周每天消费情况")
+		for (let i = 0; i < 3; i++) {
 			//btn-group-ul-li-01
-
-			const upRight_btnlist_li_01 = document.createElement('li')
-			upRight_btnlist_li_01.onclick = function() {
+			const upRight_btnlist_div = document.createElement('div')
+			
+			const upRight_btnlist_button = document.createElement('button')
+			upRight_btnlist_button.innerHTML = nameArys[i]
+			upRight_btnlist_button.id = `button${i}`
+			upRight_btnlist_button.onclick = function() {
 				upRight_layout(i, 'UpRightGraph', data)
 			}
-			upRight_btnlist_li_01.appendChild(document.createTextNode(nameArys[i]))
-			upRight_btnlist_ul.appendChild(upRight_btnlist_li_01)
+			upRight_btnlist_div.appendChild(upRight_btnlist_button)
+			div_btnlist.appendChild(upRight_btnlist_button)
 		}
 
-
-		div_btnlist.appendChild(upRight_btnlist_ul)
-
+		upRight_layout(0, 'UpRightGraph', data)
 
 	}
 
 }
 
-
 function upRight_layout(code, id, data) {
-	console.log(data)
+	//console.log(data)
 	var myCharts = echarts.init(document.getElementById(id));
 	myCharts.clear()
 	if (code == 0) {

@@ -155,3 +155,11 @@
 	.BMap_cpyCtrl .BMap_noprint .anchorBL{
 		display: none;
 	}
+
+    .up_right_button_toChangeEchars {
+    	flex: 1 1 auto;
+    	display: flex;
+    	height: 27px;
+   	 	margin-top: 17px;
+    	width: 40rem;
+    }
