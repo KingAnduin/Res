@@ -148,8 +148,13 @@ function upRight_layout(code, id, data) {
 				//subtext: '虚构数据'
 			},
 			tooltip: {
-				trigger: 'item',
-				formatter: "{b}: {c}"
+				trigger: 'axis',
+			},
+			grid: {
+				up: '10%',
+				left: '3%',
+				right: '4%',
+				containLabel: true
 			},
 			toolbox: {
 				show: true,
@@ -190,7 +195,6 @@ function upRight_layout(code, id, data) {
 				data: dataArr
 			}]
 		};
-
 		myCharts.setOption(option);
 
 	}
