@@ -223,9 +223,6 @@ function upRight_layout(code, id, data) {
 			resName.push(dataArr[i].name);
 		}
 		option = {
-			title: {
-				text: '折线图堆叠'
-			},
 			tooltip: {
 				trigger: 'axis'
 			},

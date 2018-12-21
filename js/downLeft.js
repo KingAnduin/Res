@@ -80,7 +80,7 @@ function downLeft_LeiDa(id, data) {
 		},
 		tooltip: {},
 		legend: {
-			
+			x:"right"
 		},
 		radar: {
 			// shape: 'circle',
