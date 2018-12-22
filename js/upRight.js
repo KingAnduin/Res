@@ -134,7 +134,7 @@ function upRight_layout(code, id, data) {
 
 		var dataArr = new Array()
 		for (let i in data.type) {
-			console.log(data.type[i]['NAME'])
+			//console.log(data.type[i]['NAME'])
 			var dic = {}
 			dic['name'] = data.type[i]['NAME']
 			dic['value'] = data.type[i]['ALLSUM']
@@ -200,7 +200,6 @@ function upRight_layout(code, id, data) {
 	}
 	//折线图
 	function upRight_lineMonthAmount(data) {
-
 		let dataArr = [];
 
 		for (let i in data.type) {
@@ -208,7 +207,6 @@ function upRight_layout(code, id, data) {
 			let saleMonthAmount = {
 				"name": data.type[i].NAME,
 				"type": 'line',
-				"stack": '总量',
 				"data": [data.type[i].ONE, data.type[i].TWO, data.type[i].THREE,
 					data.type[i].FOUR, data.type[i].FIVE, data.type[i].SIX,
 					data.type[i].SEVEN, data.type[i].EIGHT, data.type[i].NINE,
@@ -227,7 +225,12 @@ function upRight_layout(code, id, data) {
 				trigger: 'axis'
 			},
 			legend: {
-				data: resName
+				data: resName,
+				padding: 0,
+				itemHeight:12
+			},
+			textStyle:{
+				fontSize:10
 			},
 			grid: {
 				left: '3%',
