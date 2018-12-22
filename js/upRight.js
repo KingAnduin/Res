@@ -148,7 +148,7 @@ function upRight_layout(code, id, data) {
 				//subtext: '虚构数据'
 			},
 			tooltip: {
-				trigger: 'axis',
+				trigger: 'item',
 			},
 			grid: {
 				up: '10%',
