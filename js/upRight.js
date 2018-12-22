@@ -281,30 +281,43 @@ function upRight_layout(code, id, data) {
 		var dic = {}
 		dic['name'] = '星期一'
 		dic['value'] = dic_date['星期一']
+		dic['itemStyle'] = {color: 'rgb(240,150,0)'}
 		dic_arr.push(dic)
+		
 		var dic2 = {}
 		dic2['name'] = '星期二'
 		dic2['value'] = dic_date['星期二']
+		dic2['itemStyle'] = {color: 'rgb(255,210,0)'}
 		dic_arr.push(dic2)
+		
 		var dic3 = {}
 		dic3['name'] = '星期三'
 		dic3['value'] = dic_date['星期三']
+		dic3['itemStyle'] = {color: 'rgb(142,192,34)'}
 		dic_arr.push(dic3)
+		
 		var dic4 = {}
 		dic4['name'] = '星期四'
 		dic4['value'] = dic_date['星期四']
+		dic4['itemStyle'] = {color: 'rgb(35,172,58)'}
 		dic_arr.push(dic4)
+		
 		var dic5 = {}
 		dic5['name'] = '星期五'
 		dic5['value'] = dic_date['星期五']
+		dic5['itemStyle'] = {color: 'rgb(14,110,180)'}
 		dic_arr.push(dic5)
+		
 		var dic6 = {}
 		dic6['name'] = '星期六'
 		dic6['value'] = dic_date['星期六']
+		dic6['itemStyle'] = {color: 'rgb(97,25,135)'}
 		dic_arr.push(dic6)
+		
 		var dic7 = {}
 		dic7['name'] = '星期天'
 		dic7['value'] = dic_date['星期天']
+		dic7['itemStyle'] = {color: 'rgb(164,14,95)'}
 		dic_arr.push(dic7)
 		
 
